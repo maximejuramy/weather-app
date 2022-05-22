@@ -10,6 +10,7 @@ function geocode(address, callback) {
             callback('Unable to connect to Location service :(', undefined)
         } else {
             const features = body.features;
+            console.log(body);
             if (features.length === 0 ){
                 callback('Unable to find location :(', undefined);
             } else {
