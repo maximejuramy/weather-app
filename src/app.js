@@ -58,7 +58,7 @@ app.get('/weather', (req, res) => {
             return res.send({ error })
         }
 
-        forecast(latitude, longitude, (error, { temperature, feelslike }) => {
+        forecast(latitude, longitude, (error, { weather, temperature, feelslike }) => {
             if (error) {
                 return res.send({
                     error: "no address provided :("
@@ -67,6 +67,7 @@ app.get('/weather', (req, res) => {
 
             res.send( {
                 location,
+                weather,
                 temperature,
                 feelslike
             })

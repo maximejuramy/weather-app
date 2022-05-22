@@ -11,8 +11,9 @@ function forecast(latitude, longitude, callback) {
         } else if (body.error) {
             callback('Wrong coordinates', undefined);
         } else {
-            const { temperature, feelslike } = body.current;
+            const { weather_descriptions, temperature, feelslike } = body.current;
             callback(undefined, {
+                weather: weather_descriptions[0],
                 temperature,
                 feelslike,
             })
